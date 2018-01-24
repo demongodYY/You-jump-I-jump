@@ -20,13 +20,19 @@
 	function right_move(powerLocal)
 	{	
 		var times = 0;
+		// for (times =0; times<=powerLocal; times++) {
+		// 	if( x < width -100){
+		// 		x += 20;
+		// 	}
+		// 	document.getElementById("role").style.left=x + "px";
+		// }
+		// dropDown();
 		var interval = setInterval(() => {
 			if( x < width -100){
 				x += 20;
 			}
 			document.getElementById("role").style.left=x + "px";
 			if (times >= powerLocal) {
-				console.log(x);
 				dropDown();
 				clearInterval(interval);
 			}
@@ -51,6 +57,7 @@
 			deal_right("clr");
 		}
 	}
+
 	function setPillar() {
 		var border = document.getElementById("border");
         for (var i = 0; i < pillarsArray.length; i++) {
@@ -62,7 +69,7 @@
 	}
 
 	function dropDown() {
-		var isDrop  = true;
+		var isDrop = true;
         var pillowIndex = 0;
 		for(var i = 0; i<pillarsArray.length; i++) {
 			if((x+50)>pillarsArray[i] && (x+10)<(pillarsArray[i]+80)){
@@ -87,7 +94,7 @@
         }
 	}
 
-	window.onload=function()
+	window.onload = function()
 	{
 		width = document.getElementById('border').offsetWidth;
 		setPillar();

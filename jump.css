@@ -7,7 +7,7 @@
 			position: absolute;
 			width: 100%;
 			height: 100%;
-			background-color: #bbb;
+			background-color: gray;
 			overflow: hidden;
 		}
 		#role{
@@ -25,5 +25,5 @@
 			width: 80px;
 			height: 300px;
 			bottom: 0;
-			background-color: #222233
+			background-color: #222233;
 		}
