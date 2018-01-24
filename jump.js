@@ -24,8 +24,7 @@
 			if( x < width -100){
 				x += 20;
 			}
-			document.getElementById("tank").style.left=x + "px";
-			
+			document.getElementById("role").style.left=x + "px";
 			if (times >= powerLocal) {
 				console.log(x);
 				dropDown();
@@ -39,7 +38,7 @@
 		var ev=e || window.event;//兼容火狐和IE,
 		//使用 || 运算符的好处是，当e可用时，ev=e,既火狐浏览器下，
 		//非火狐浏览器时e为undefined，ev=window.event，既IE和webkit浏览器
-		if(ev.keyCode==39 || ev.keyCode==68)
+		if(ev.keyCode==32)
 		{
 			deal_right("set");
 		}
@@ -47,40 +46,45 @@
 	function keyup(e)
 	{
 		var ev=e || window.event;
-		if(ev.keyCode==39 || ev.keyCode==68)
+		if(ev.keyCode==32)
 		{
 			deal_right("clr");
 		}
 	}
 	function setPillar() {
-		
 		var border = document.getElementById("border");
-		pillarsArray.forEach(element => {
+        for (var i = 0; i < pillarsArray.length; i++) {
 			var pillar = document.createElement('div');
 			pillar.className = "pillar"
 			border.appendChild(pillar);
-			pillar.style.left = element + "px";
-		});
+			pillar.style.left = pillarsArray[i] + "px";
+		}
 	}
 
 	function dropDown() {
 		var isDrop  = true;
+        var pillowIndex = 0;
 		for(var i = 0; i<pillarsArray.length; i++) {
 			if((x+50)>pillarsArray[i] && (x+10)<(pillarsArray[i]+80)){
 				isDrop = false;
+                pillowIndex = i;
+                break;
 			}
 		}
 		if (isDrop === true){
 			var interval = setInterval(() => {
 				roleY -= 20;
-				document.getElementById("tank").style.bottom= roleY + "px";
+				document.getElementById("role").style.bottom= roleY + "px";
 				if (roleY < -80) {
 					alert("game over!");
 					clearInterval(interval);
 					location.reload();
 				}
 			},20)
-		}
+		} else if (pillowIndex === pillarsArray.length - 1) {
+            alert("you win!!!\r\ncongratulations!!!");
+            location.reload();
+        }
 	}
 
 	window.onload=function()
