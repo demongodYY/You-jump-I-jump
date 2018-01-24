@@ -1,5 +1,5 @@
 	var width;
-	var x=0;
+	var roleX=0;
 	var roleY = 300;
 	var power = 0;
 	var pillarsArray  = [0, 200,400,550,800,1150];
@@ -28,10 +28,10 @@
 		// }
 		// dropDown();
 		var interval = setInterval(() => {
-			if( x < width -100){
-				x += 20;
+			if( roleX < width -100){
+				roleX += 20;
 			}
-			document.getElementById("role").style.left=x + "px";
+			document.getElementById("role").style.left=roleX + "px";
 			if (times >= powerLocal) {
 				dropDown();
 				clearInterval(interval);
@@ -72,7 +72,7 @@
 		var isDrop = true;
         var pillowIndex = 0;
 		for(var i = 0; i<pillarsArray.length; i++) {
-			if((x+50)>pillarsArray[i] && (x+10)<(pillarsArray[i]+80)){
+			if((roleX+50)>pillarsArray[i] && (roleX+10)<(pillarsArray[i]+80)){
 				isDrop = false;
                 pillowIndex = i;
                 break;
