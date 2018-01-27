@@ -5,18 +5,7 @@
 	var pillarsArray  = [0, 200,400,550,800,1150];
 	document.onkeydown=keydown;
 	document.onkeyup=keyup;
-
-	function deal_right(type)
-	{
-		if (type=="set")
-		{
-			power++;	
-		} 
-		else{
-			right_move(power);
-			power = 0;
-		}
-	}
+	
 	function right_move(powerLocal)
 	{	
 		var times = 0;
@@ -46,7 +35,7 @@
 		//非火狐浏览器时e为undefined，ev=window.event，既IE和webkit浏览器
 		if(ev.keyCode==32)
 		{
-			deal_right("set");
+			power++;
 		}
 	}
 	function keyup(e)
@@ -54,7 +43,8 @@
 		var ev=e || window.event;
 		if(ev.keyCode==32)
 		{
-			deal_right("clr");
+			right_move(power);
+			power = 0;
 		}
 	}
 
